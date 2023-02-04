@@ -47,17 +47,47 @@ If the control input changes to AB = 10, then all the gates are restricted excep
  
  
 ### Procedure
-/* write all the steps invloved */
+1. Create a project with required entities.
+2. Create a module along with respective file name for both Multiplexer and De-multiplexer.
+3.Run the module and get the respective RTL outputs.
+4. Create university program(VWF) for getting timing diagram.
+5. Give the respective inputs for timing diagram and obtain the results.
 
 
 
 ### PROGRAM 
 /*
 Program for flipflops  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
-*/
+Developed by: HARISH RAGAV S
+RegisterNumber: 22008415 
 
+*/
+4X1 MULTIPLEXER
+module mux(i0, i1, i2, i3, s0, s1, y);input i0,
+i1, i2, i3, s0, s1;
+output y; not(s0c,
+s0);
+nor(s1c, s1);
+wire p, q, r, s, s0c, s1c;and(p,
+s0c, s1c, i0);
+and(q, s0c, s1, i1);
+and(r, s0, s1c, i2);
+and(s, s0, s1, i3);
+or(y, p, q, r, s);
+endmodule
+
+1X4 DEMULTIPLEXER
+module demux(y0, y1, y2, y3, s0, s1, i);
+input s0, s1, i;
+output y0, y1, y2, y3;
+wire s0c, s1c; nor(s0c,
+s0);
+nor(s1c, s1);
+and(y0, i, s0c, s1);
+and(y1, i, s0c, s1c);
+and(y2, i, s0, s1c);
+and(y3, i, s0, s1);
+endmodule
 
 
 
@@ -65,7 +95,11 @@ RegisterNumber:
 
 ### RTL LOGIC  
 
+4X1 MULTIPLEXER
+![image](https://user-images.githubusercontent.com/119345345/216766245-90d736d3-8e00-45c3-a2b5-033b9be7b5c2.png)
 
+1X4 DEMULTIPLEXER
+![image](https://user-images.githubusercontent.com/119345345/216766261-7c1d3ef9-c1bb-4411-ba0e-94ed3a065c5e.png)
 
 
 
@@ -73,16 +107,25 @@ RegisterNumber:
 
 
 ### TIMING DIGRAMS  
+4x1 MUX
+![image](https://user-images.githubusercontent.com/119345345/216766279-b3d89c7a-e6c8-46c7-aac6-aaf28515864f.png)
 
+1X4 DEMUX
+![image](https://user-images.githubusercontent.com/119345345/216766291-f70d099a-b00a-4143-8f1e-a4f485bfc15b.png)
 
 
 
 
 ### TRUTH TABLE 
 
+MUX
+![image](https://user-images.githubusercontent.com/119345345/216766319-047894bd-5ea6-4688-8711-2bc56877ffec.png)
 
+DEMUX
 
-
+![image](https://user-images.githubusercontent.com/119345345/216766330-eb50f8a0-ebf0-46dc-943b-d6ceadaa40d7.png)
 
 
 ### RESULTS 
+Thus the implementation of Multiplexer and De multiplexer are verified
+
